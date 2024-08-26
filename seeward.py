@@ -19,6 +19,11 @@ team_expertise = st.number_input("Team Expertise:", min_value=1, max_value=10, s
 impact_on_systems = st.number_input("Impact on Systems:", min_value=1, max_value=10, step=1)
 communication_efficiency = st.number_input("Communication Efficiency:", min_value=1, max_value=10, step=1)
 documentation_learning = st.number_input("Documentation and Learning:", min_value=1, max_value=10, step=1)
+st.write("PLACE HOLDER VALUES")
+st.write("Detection time = 5")
+st.write("Complexity Issue = 7")
+st.write(" Resource Availability = 6")
+
 detection_time = 5
 complexity_issue = 7
 resource_availability = 6
@@ -51,6 +56,7 @@ if st.button("Calculate Ease Of Resolution"):
 
 st.subheader("Exploit Difficulty")
 # Display predefined values
+st.write("PLACE HOLDER VALUES")
 st.write("Attack Vector = 5")
 st.write("Attack Complexity = 6")
 st.write("Privileges Required = 7")
@@ -93,6 +99,7 @@ if st.button("Calculate Exploit Difficulty"):
 
 
 st.subheader("Vulnerability Severity")
+st.write("PLACE HOLDER VALUES")
 st.write("CVSS Score = 5")
 st.write("Affected Products Score = 6")
 cvss = 5
