@@ -1,4 +1,4 @@
-iimport streamlit as st
+import streamlit as st
 
 # Set the app title
 st.title("Seeward Severity Score Calculator")
@@ -182,6 +182,4 @@ if st.button('What is the Vulnerability Severity Score Formula ?'):
                                                (age_score * weight_age_score) + \
                                                (exploit_weight * weight_exploit_weight)')
 else:
-    st.write('Click me to define Vulnerability Severity Score Formula.') (Exploit Difficulty x WeightED) + (EPSS * WeightEPSS).')
-else:
-    st.write('Click me to define Seeward Severity Score Formula.')
+    st.write('Click me to define Vulnerability Severity Score Formula.')
