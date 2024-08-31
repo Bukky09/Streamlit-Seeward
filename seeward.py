@@ -7,10 +7,10 @@ st.header('Input Values')
 
 # Set the weights for the components
 st.sidebar.header(" Weights For Seeward Severity score")
-weight_vs = st.sidebar.number_input("Enter Weight for Vulnerability Severity (1-10):", min_value=1, max_value=10, step=1)
-weight_er = st.sidebar.number_input("Enter Weight for Ease of Resolution (1-10):", min_value=1, max_value=10, step=1)
-weight_ed = st.sidebar.number_input("Enter Weight for Exploit Difficulty (1-10):", min_value=1, max_value=10, step=1)
-weight_epss = st.sidebar.number_input("Enter Weight for EPSS (Exploit Prediction Scoring System) (1-10):", min_value=1, max_value=10, step=1)
+weight_vs = st.sidebar.number_input("Enter Weight for Vulnerability Severity (0-1):", min_value=0.0, max_value=1.0, step=0.1)
+weight_er = st.sidebar.number_input("Enter Weight for Ease of Resolution (0-1):", min_value=0.0, max_value=1.0, step=0.1)
+weight_ed = st.sidebar.number_input("Enter Weight for Exploit Difficulty (0-1):", min_value=0.0, max_value=1.0, step=0.1)
+weight_epss = st.sidebar.number_input("Enter Weight for EPSS (Exploit Prediction Scoring System) (0-1):", min_value=0.0, max_value=1.0, step=0.1)
 
 # Create input fields for the components
 st.subheader("Ease Of Resolution")
@@ -35,18 +35,18 @@ with col_factors:
     communication_efficiency = st.number_input("Communication Efficiency:", min_value=1, max_value=10, step=1)
     documentation_learning = st.number_input("Documentation and Learning:", min_value=1, max_value=10, step=1)
     detection_time =st.number_input('Detection time (Retrieve this from the CVE response):', min_value=5,max_value=5,step=1)
-    complexity_issue = st.number_input('Complexity Issue (Retrieve this from the CVE response):', min_value=7,max_value=7,step=1)
-    resource_availability =st.number_input('Resource Availability (Retrieve this from the CVE response):', min_value=8,max_value=8,step=1)
+    complexity_issue = st.number_input('Complexity Issue (Retrieve this from the CVE response):', min_value=4,max_value=4,step=1)
+    resource_availability =st.number_input('Resource Availability (Retrieve this from the CVE response):', min_value=7,max_value=7,step=1)
 with col_weights:
     st.write('Weights For Ease of Resolution')
-    weight_response_time = st.number_input("Response Time Weight (1-10):", min_value=1, max_value=10, step=1)
-    weight_team_expertise = st.number_input("Team Expertise Weight (1-10):", min_value=1, max_value=10, step=1)
-    weight_impact_on_systems = st.number_input("Impact on Systems Weight (1-10):", min_value=1, max_value=10, step=1)
-    weight_communication_efficiency = st.number_input("Communication Efficiency Weight (1-10):", min_value=1, max_value=10, step=1)
-    weight_documentation_learning = st.number_input("Documentation and Learning Weight (1-10):", min_value=1, max_value=10, step=1)
-    weight_detection_time = st.number_input("Detection Time Weight (1-10):", min_value=1, max_value=10, step=1)
-    weight_complexity_issue = st.number_input("Complexity of Issue Weight (1-10):", min_value=1, max_value=10, step=1)
-    weight_resource_availability = st.number_input("Resource Availability Weight (1-10):", min_value=1, max_value=10, step=1)
+    weight_response_time = st.number_input("Response Time Weight (0-1):", min_value=0.0, max_value=1.0, step=0.1)
+    weight_team_expertise = st.number_input("Team Expertise Weight (0-1):", min_value=0.0, max_value=1.0, step=0.1)
+    weight_impact_on_systems = st.number_input("Impact on Systems Weight (0-1):", min_value=0.0, max_value=1.0, step=0.1)
+    weight_communication_efficiency = st.number_input("Communication Efficiency Weight (0-1):", min_value=0.0, max_value=1.0, step=0.1)
+    weight_documentation_learning = st.number_input("Documentation and Learning Weight (0-1):", min_value=0.0, max_value=1.0, step=0.1)
+    weight_detection_time = st.number_input("Detection Time Weight (0-1):", min_value=0.0, max_value=1.0, step=0.1)
+    weight_complexity_issue = st.number_input("Complexity of Issue Weight (0-1):", min_value=0.0, max_value=1.0, step=0.1)
+    weight_resource_availability = st.number_input("Resource Availability Weight (0-1):", min_value=0.0, max_value=1.0, step=0.1)
 
 # Initialize session state for ease_of_resolution if not already set
 if 'ease_of_resolution' not in st.session_state:
@@ -79,32 +79,32 @@ else:
 col_weights_ed, col_factors_ed = st.columns(2)
 with col_factors_ed:
     st.write('Factors For Exploit Difficulty')
-    st.number_input("Attack Vector (Retrieve this from the CVE response):", min_value=5,max_value=5,step=1)
-    st.number_input("Attack Complexity (Retrieve this from the CVE response):", min_value=6,max_value=6,step=1)
-    st.number_input("Privileges Required(Retrieve this from the CVE response):", min_value=7,max_value=7,step=1)
-    st.number_input("Availability Of Exploit(Retrieve this from the CVE response):", min_value=5,max_value=5,step=1)
-    st.number_input("Envi. Factors(Retrieve this from the CVE response):", min_value=7,max_value=7,step=1)
-    st.number_input("Mitigations Defenses(Retrieve this from the CVE response):", min_value=8,max_value=8,step=1)
-    st.number_input("Exploit Reliability( Retrieve this from the CVE response):", min_value=6,max_value=6,step=1)
+    st.number_input("Attack Vector (Retrieve this from the CVE response):", min_value=2,max_value=2,step=1)
+    st.number_input("Attack Complexity (Retrieve this from the CVE response):", min_value=8,max_value=8,step=1)
+    st.number_input("Privileges Required(Retrieve this from the CVE response):", min_value=2,max_value=2,step=1)
+    st.number_input("Availability Of Exploit(Retrieve this from the CVE response):", min_value=3,max_value=3,step=1)
+    st.number_input("Envi. Factors(Retrieve this from the CVE response):", min_value=5,max_value=5,step=1)
+    st.number_input("Mitigations Defenses(Retrieve this from the CVE response):", min_value=5,max_value=5,step=1)
+    st.number_input("Exploit Reliability( Retrieve this from the CVE response):", min_value=5,max_value=5,step=1)
 
 
-attack_vector = 5
-attack_complexity = 6
-privileges_required = 7
-availability_of_exploit = 5
-environmental_factors = 7
-mitigations_defenses = 8
-exploit_reliability = 6
+attack_vector = 2
+attack_complexity = 8
+privileges_required = 2
+availability_of_exploit = 3
+environmental_factors = 5
+mitigations_defenses = 5
+exploit_reliability = 5
 
 with col_weights_ed:
     st.write(" Weights For Exploit Difficulty")
-    weight_attack_vector = st.number_input("Attack Vector Weight (1-10):", min_value=1, max_value=10, step=1)
-    weight_attack_complexity = st.number_input("Attack Complexity Weight (1-10):", min_value=1, max_value=10, step=1)
-    weight_privileges_required = st.number_input("Privileges Required Weight (1-10):", min_value=1, max_value=10, step=1)
-    weight_availability_of_exploit = st.number_input("Availability of Exploit Weight (1-10):", min_value=1, max_value=10, step=1)
-    weight_environmental_factors = st.number_input("Environmental Factors Weight (1-10):", min_value=1, max_value=10, step=1)
-    weight_mitigations_defenses = st.number_input("Mitigations and Defenses Weight (1-10):", min_value=1, max_value=10, step=1)
-    weight_exploit_reliability = st.number_input("Exploit Reliability Weight (1-10):", min_value=1, max_value=10, step=1)
+    weight_attack_vector = st.number_input("Attack Vector Weight (0-1):", min_value=0.0, max_value=1.0, step=0.1)
+    weight_attack_complexity = st.number_input("Attack Complexity Weight (0-1):", min_value=0.0, max_value=1.0, step=0.1)
+    weight_privileges_required = st.number_input("Privileges Required Weight (0-1):", min_value=0.0, max_value=1.0, step=0.1)
+    weight_availability_of_exploit = st.number_input("Availability of Exploit Weight (0-1):", min_value=0.0, max_value=1.0, step=0.1)
+    weight_environmental_factors = st.number_input("Environmental Factors Weight (0-1):", min_value=0.0, max_value=1.0, step=0.1)
+    weight_mitigations_defenses = st.number_input("Mitigations and Defenses Weight (0-1):", min_value=0.0, max_value=1.0, step=0.1)
+    weight_exploit_reliability = st.number_input("Exploit Reliability Weight (0-1):", min_value=0.0, max_value=1.0, step=0.1)
 
 # Initialize session state for exploit_difficulty if not already set
 if 'exploit_difficulty' not in st.session_state:
@@ -137,8 +137,8 @@ col_weights_vs, col_factors_vs = st.columns(2)
 
 with col_factors_vs:
     st.write('Factors For Vulnerability Severity')
-    st.number_input("CVSS Score( Retrieve this from the CVE response):", min_value=5,max_value=5,step=1)
-    st.number_input("Affec. Prod. Score ( Retrieve this from the CVE response):", min_value=6,max_value=6,step=1)
+    st.number_input("CVSS Score( Retrieve this from the CVE response):", min_value=6.35,max_value=6.35,step=1.0)
+    st.number_input("Affec. Prod. Score ( Retrieve this from the CVE response):", min_value=7,max_value=7,step=1)
     recency_score = st.number_input("Recency Score:", min_value=1, max_value=10, step=1)
     age_score = st.number_input("Age Score:", min_value=1, max_value=10, step=1)
     exploit_weight = st.number_input("Exploit Weight:", min_value=1, max_value=10, step=1)
@@ -148,11 +148,11 @@ affected_products_score = 6
 
 with col_weights_vs:
  st.write("Weights For Vulnerability Severity")
- weight_cvss = st.number_input("CVSS Score Weight (1-10):", min_value=1, max_value=10, step=1)
- weight_affected_products_score = st.number_input("Affected Products Score Weight (1-10):", min_value=1, max_value=10, step=1)
- weight_recency_score = st.number_input("Recency Score Weight (1-10):", min_value=1, max_value=10, step=1)
- weight_age_score = st.number_input("Age Score Weight (1-10):", min_value=1, max_value=10, step=1)
- weight_exploit_weight = st.number_input("Exploit Weight Weight (1-10):", min_value=1, max_value=10, step=1)
+ weight_cvss = st.number_input("CVSS Score Weight (0-1):", min_value=0.0, max_value=1.0, step=0.1)
+ weight_affected_products_score = st.number_input("Affected Products Score Weight (0-1):", min_value=0.0, max_value=1.0, step=0.1)
+ weight_recency_score = st.number_input("Recency Score Weight (0-1):", min_value=0.0, max_value=1.0, step=0.1)
+ weight_age_score = st.number_input("Age Score Weight (0-1):", min_value=0.0, max_value=1.0, step=0.1)
+ weight_exploit_weight = st.number_input("Exploit Weight Weight (0-1):", min_value=0.0, max_value=1.0, step=0.1)
 
 # Initialize session state for vulnerability_severity if not already set
 if 'vulnerability_severity' not in st.session_state:
@@ -216,3 +216,4 @@ if st.button("Calculate Seeward Severity"):
         st.success(f"The Seeward Severity Score is: {seeward_severity:.2f}")
     else:
         st.error("Please calculate both Ease of Resolution, Exploit Difficulty, and Vulnerability Severity scores first.")
+
